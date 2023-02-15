@@ -22,7 +22,11 @@ public class SecurityConfig {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
         // return NoOpPasswordEncoder.getInstance();
     }
-
+    @Bean
+    public UserDetailsService user(){
+        return new com.oretania.portal.services.AlumnoService();
+    }
+/*
     @Bean
     public UserDetailsService users() {
         UserDetails user = User.builder()
@@ -39,12 +43,12 @@ public class SecurityConfig {
                 .build();
         return new InMemoryUserDetailsManager(user, admin);
     }
-
+*/
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
-        authProvider.setUserDetailsService(users());
+        authProvider.setUserDetailsService(user());
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
