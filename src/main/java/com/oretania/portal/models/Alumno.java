@@ -3,6 +3,7 @@ package com.oretania.portal.models;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -22,7 +23,7 @@ public class Alumno {
     private String userName;
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "alumno_asignatura", joinColumns = {@JoinColumn(name="alumno_codigo")}, inverseJoinColumns = {@JoinColumn(name="asignatura_codigo")})
     List<Asignatura> asignaturas;
 
