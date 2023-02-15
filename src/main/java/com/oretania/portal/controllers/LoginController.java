@@ -35,5 +35,31 @@ public class LoginController {
         return "asignaturas/lengua";
     }
 
+    @GetMapping(value = { "/asignaturas/ingles" })
+    @PreAuthorize("hasAnyAuthority('DIC','ING')")
+    public String ing() {
 
+        return "asignaturas/ingles";
+    }
+
+    @GetMapping(value = { "/asignaturas/religion" })
+    @PreAuthorize("hasAnyAuthority('DIC','REL')")
+    public String rel() {
+
+        return "asignaturas/religion";
+    }
+
+    @GetMapping(value = { "/asignaturas/fisica" })
+    @PreAuthorize("hasAnyAuthority('DIC','FIS')")
+    public String fis() {
+
+        return "asignaturas/fisica";
+    }
+
+    @GetMapping(value = { "/asignaturas/quimica" })
+    @PreAuthorize("hasAnyAuthority('DIC','QUI')")
+    public String qui() {
+
+        return "asignaturas/quimica";
+    }
 }
