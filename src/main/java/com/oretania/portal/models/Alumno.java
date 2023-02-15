@@ -5,6 +5,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Alumno {
@@ -19,7 +22,9 @@ public class Alumno {
     private String userName;
     private String password;
 
-    
+    @ManyToMany
+    @JoinTable(name = "alumno_asignatura", joinColumns = {@JoinColumn(name="alumno_codigo")}, inverseJoinColumns = {@JoinColumn(name="asignatura_codigo")})
+    List<Asignatura> asignaturas;
 
     public Alumno(int codigo) {
         this.codigo = codigo;
