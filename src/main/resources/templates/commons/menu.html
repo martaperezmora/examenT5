@@ -13,27 +13,27 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                             <a class="nav-link active" aria-current="page" th:href="@{/welcome}"
                                 href="welcome.html">Inicio</a>
                         </li>
-                        <li class="nav-item" sec:authorize="hasAuthority('MAT')">
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('MAT','DIC')">
                             <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/matematicas}"
                                 href="welcome.html">Matemáticas</a>
                         </li>
-                        <li class="nav-item" sec:authorize="hasAuthority('LEN')">
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('LEN','DIC')">
                             <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/lengua}"
                                 href="welcome.html">Lengua</a>
                         </li>
-                        <li class="nav-item" sec:authorize="hasAuthority('ING')">
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('ING','DIC')">
                             <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/matematicas}"
                                 href="welcome.html">Inglés</a>
                         </li>
-                        <li class="nav-item" sec:authorize="hasAuthority('REL')">
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('REL','DIC')">
                             <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/matematicas}"
                                 href="welcome.html">Religión</a>
                         </li>
-                        <li class="nav-item" sec:authorize="hasAuthority('FIS')">
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('FIS','DIC')">
                             <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/matematicas}"
                                 href="welcome.html">Física</a>
                         </li>
-                        <li class="nav-item" sec:authorize="hasAuthority('QUI')">
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('QUI','DIC')">
                             <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/matematicas}"
                                 href="welcome.html">Química</a>
                         </li>
