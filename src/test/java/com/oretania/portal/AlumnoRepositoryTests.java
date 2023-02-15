@@ -46,6 +46,11 @@ class AlumnoRepositoryTests {
 		u3.setUserName("alumno3");
 		u3.setPassword(encoder.encode("1234"));
 
+		Alumno director = new Alumno();
+		director.setCodigo(4);
+		director.setUserName("director");
+		director.setPassword(encoder.encode("1234"));
+
         
 
 		Asignatura a1 = new Asignatura();
@@ -78,17 +83,35 @@ class AlumnoRepositoryTests {
 		a6.setDescrripcion("Química");
 		repoAsignatura.save(a6);
 
+		Asignatura aDirector = new Asignatura();
+		aDirector.setCodigo("DIC");
+		aDirector.setDescrripcion("director");
+		repoAsignatura.save(aDirector);
+
 		List<Asignatura> asignaturaAlumno1 = new ArrayList<Asignatura>();
 		asignaturaAlumno1.add(a1);
 		asignaturaAlumno1.add(a2);
 		asignaturaAlumno1.add(a3);
 
+
+		List<Asignatura> asignaturaAlumno2 = new ArrayList<Asignatura>();
+		asignaturaAlumno2.add(a3);
+		asignaturaAlumno2.add(a4);
+		asignaturaAlumno2.add(a1);
+
+
+		List<Asignatura> permisoDic = new ArrayList<Asignatura>();
+		permisoDic.add(aDirector);
+
 		u1.setAsignaturas(asignaturaAlumno1);
+		u2.setAsignaturas(asignaturaAlumno2);
+		director.setAsignaturas(permisoDic);
 
 
 		repoAlumno.save(u1);
 		repoAlumno.save(u2);
 		repoAlumno.save(u3);
+		repoAlumno.save(director);
 
 		//assertTrue(a6.getDescrripcion().equalsIgnoreCase("QUI"));
 	}
